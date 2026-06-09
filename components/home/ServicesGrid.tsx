@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { services } from '@/data/services'
+import ServiceIcon from '@/components/ui/ServiceIcon'
 
 export default function ServicesGrid() {
   return (
@@ -16,7 +17,9 @@ export default function ServicesGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map(service => (
             <div key={service.id} className="card hover:border-primary/40 transition-colors">
-              <div className="text-3xl mb-3">{service.icon}</div>
+              <div className="text-primary mb-4">
+                <ServiceIcon serviceId={service.id} className="w-8 h-8" />
+              </div>
               <h3 className="font-heading text-xl text-text mb-2">{service.name}</h3>
               <p className="font-body text-sm text-muted mb-4 leading-relaxed">{service.description}</p>
               <div className="flex items-baseline gap-1">

@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { services, type Service } from '@/data/services'
+import ServiceIcon from '@/components/ui/ServiceIcon'
 
 interface Props {
   onNext: (serviceId: string, subOptionId: string | null) => void
@@ -33,7 +34,9 @@ export default function Step1Service({ onNext }: Props) {
               }`}
             >
               <div className="flex items-start gap-3">
-                <span className="text-2xl">{service.icon}</span>
+                <span className={`flex-shrink-0 ${isSelected ? 'text-primary' : 'text-muted'}`}>
+                  <ServiceIcon serviceId={service.id} className="w-6 h-6" />
+                </span>
                 <div className="flex-1">
                   <p className="font-body text-sm font-semibold text-text">{service.name}</p>
                   <p className="font-body text-xs text-muted mt-0.5">{service.unit} ${service.startingPrice}</p>
