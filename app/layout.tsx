@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Russo_One, DM_Sans } from 'next/font/google'
+import Nav from '@/components/layout/Nav'
+import Footer from '@/components/layout/Footer'
 import './globals.css'
 
 const russoOne = Russo_One({
@@ -24,7 +26,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${russoOne.variable} ${dmSans.variable}`}>
       <body className="bg-bg text-text font-body antialiased">
-        {children}
+        <Nav />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )
